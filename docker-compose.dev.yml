@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: .
+      target: runtime
+    container_name: isaya-web-dev
+    env_file:
+      - .env.dev
+    environment:
+      DJANGO_DEBUG: "1"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - sqlite_data_dev:/app/data
+    command: >-
+      sh -c "python manage.py migrate --noinput &&
+      python manage.py runserver 0.0.0.0:8000"
+    stdin_open: true
+    tty: true
+
+volumes:
+  sqlite_data_dev:

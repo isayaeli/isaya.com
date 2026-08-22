@@ -1,0 +1,18 @@
+services:
+  web:
+    build:
+      context: .
+      target: runtime
+    container_name: isaya-web
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite_data:/app/data
+      - static_data:/app/staticfiles
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+  static_data:

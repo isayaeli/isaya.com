@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaya Bendera — Integration Engineer & Full-Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="statusbar-inner">
+    <div class="brand">I. BENDERA<span>.</span></div>
+    <div class="status-chips">
+      <div class="chip"><span class="dot"></span>Chakray · Active</div>
+      <div class="chip"><span class="dot amber"></span>WSO2 Certified</div>
+    </div>
+    <nav class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#ops">Ops</a>
+      <a href="#experience">Experience</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Dar es Salaam, Tanzania · WSO2 & Gravitee Certified</div>
+        <h1>Software engineer building <em>full-stack products</em> — and the API integrations that connect them.</h1>
+        <p class="hero-sub">WSO2 and Gravitee certified Software Engineer with a strong background in mobile and web development. Proficient in Spring Boot and Apache Camel for building robust microservices, Flutter for cross-platform apps, and Django for scalable web solutions. Experienced in API integration and management using WSO2 Micro Integrator, WSO2 API Manager, and Gravitee. Skilled in DevOps with tools like AWS, Docker, Kubernetes, Jenkins, Git, and GitHub. Holds a Bachelor's degree in Information Technology from the National Institute of Transport. Passionate about using technology to drive impactful solutions and empower community transformation.</p>
+        <div class="hero-meta">
+          <div><strong>Currently</strong>Integration Developer, Chakray Consulting</div>
+          <div><strong>Certified</strong>WSO2 Integration Developer · Gravitee API Mgmt</div>
+          <div><strong>Also builds</strong>Cross-platform apps with Flutter + Django</div>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="{% static 'profile.webp' %}" alt="Portrait of Isaya Bendera">
+        <div class="hero-portrait-tag"><span class="dot" style="width:5px;height:5px;"></span>Isaya Bendera</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <div class="section-tag">Product engineering</div>
+      <h2>Marketplace app</h2>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">Marketplace app — customers, freelancers & businesses</div>
+        </div>
+        <div class="panel-status"><span class="dot"></span>In active development</div>
+      </div>
+      <p class="panel-desc">A Flutter/Django marketplace connecting customers with freelance beauty professionals and businesses. I work across the full stack: booking and earnings flows in the app, the payments and payout system behind them, and the location infrastructure that powers live tracking.</p>
+
+      <div class="log">
+        <div class="log-line"><span class="log-cmd">wallet</span><span class="log-val">Provider wallet + append-only ledger, Celery Beat-scheduled payouts with auto-approval logic</span></div>
+        <div class="log-line"><span class="log-cmd">payments</span><span class="log-val">ClickPesa gateway integration, M-Pesa & bank transfer payouts</span></div>
+        <div class="log-line"><span class="log-cmd">location</span><span class="log-val">Migrated Haversine → PostGIS/GeoDjango, live freelancer tracking over Django Channels WebSockets</span></div>
+        <div class="log-line"><span class="log-cmd">mobile</span><span class="log-val">GetX-managed booking, earnings & tracking screens; role-based routing for 3 user types</span></div>
+        <div class="log-line"><span class="log-cmd">infra</span><span class="log-val">Dockerized on a Contabo NVMe VPS — Nginx, Daphne, Gunicorn, Celery, PostGIS, Redis; Grafana dashboards on top</span></div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Flutter</span><span class="tag">GetX</span><span class="tag">Django REST Framework</span>
+        <span class="tag">Django Channels</span><span class="tag">Celery</span><span class="tag">PostGIS</span>
+        <span class="tag">Redis</span><span class="tag">Firebase Auth</span><span class="tag">Docker Compose</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">KaziConnect — job portal, built solo</div>
+        </div>
+        <div class="panel-status amber"><span class="dot amber"></span>Solo-built, production</div>
+      </div>
+      <p class="panel-desc">Built the first production version of KaziConnect from scratch as the sole developer — architecting the entire system myself, backend to frontend, with no framework scaffolding on the UI side.</p>
+
+      <div class="log">
+        <div class="log-line"><span class="log-cmd">backend</span><span class="log-val">Django database models, business logic, and RESTful APIs, designed end to end</span></div>
+        <div class="log-line"><span class="log-cmd">frontend</span><span class="log-val">Dynamic, mobile-friendly UI hand-built in HTML, CSS & JavaScript — no templates or frameworks</span></div>
+        <div class="log-line"><span class="log-cmd">features</span><span class="log-val">User authentication, job listings, and search filters, owned end to end</span></div>
+        <div class="log-line"><span class="log-cmd">deploy</span><span class="log-val">Configured and deployed the application with scalability in mind</span></div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Django</span><span class="tag">Python</span><span class="tag">HTML5</span>
+        <span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">PostgreSQL/MySQL</span>
+        <span class="tag">Git</span>
+        <a class="tag" href="https://kaziconnect.co.tz" target="_blank" rel="noopener" style="text-decoration:none;">Visit kaziconnect.co.tz →</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">Bantu — dating app, formerly Irene's Diary</div>
+        </div>
+        <div class="panel-status"><span class="dot"></span>Live on Google Play</div>
+      </div>
+      <p class="panel-desc">Flutter developer on Irene's Diary, a dating app that evolved into Bantu. Designed and implemented responsive, user-friendly interfaces for the cross-platform app, working closely with the backend team on API integration and with QA on app stability.</p>
+
+      <div class="log">
+        <div class="log-line"><span class="log-cmd">ui</span><span class="log-val">Responsive, user-friendly interfaces built with Flutter (Dart), following clean architecture principles</span></div>
+        <div class="log-line"><span class="log-cmd">integration</span><span class="log-val">Collaborated with the backend team to integrate APIs for seamless data flow across devices</span></div>
+        <div class="log-line"><span class="log-cmd">deploy</span><span class="log-val">Assisted with build optimization for iOS/Android and CI/CD pipeline checks</span></div>
+        <div class="log-line"><span class="log-cmd">quality</span><span class="log-val">Worked with QA to resolve UI/UX issues and improve app stability</span></div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span>
+        <span class="tag">Git</span><span class="tag">CI/CD</span>
+        <a class="tag" href="https://play.google.com/store/apps/details?id=com.irenes.diary" target="_blank" rel="noopener" style="text-decoration:none;">View on Google Play →</a>
+        <a class="tag" href="https://www.instagram.com/irenesdiary.co/" target="_blank" rel="noopener" style="text-decoration:none;">Instagram →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ops">
+    <div class="section-head">
+      <div class="section-tag">Infrastructure & operations</div>
+      <h2>Production Kubernetes cluster</h2>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">Rancher / RKE cluster running WSO2 middleware</div>
+        </div>
+        <div class="panel-status amber"><span class="dot amber"></span>Continuous monitoring</div>
+      </div>
+      <p class="panel-desc">Day-to-day administration of a production Rancher-managed Kubernetes cluster — watching the metrics, tracing the alerts, and writing the reports that get handed off between shifts.</p>
+
+      <div class="log">
+        <div class="log-line"><span class="log-cmd">cluster</span><span class="log-val">RKE / Rancher-managed, production workloads</span></div>
+        <div class="log-line"><span class="log-cmd">middleware</span><span class="log-val">WSO2 API Manager, Identity Server, Micro Integrator, Microgateway</span></div>
+        <div class="log-line"><span class="log-cmd">observability</span><span class="log-val">Prometheus + Grafana for node metrics (CPU, memory, disk), EFK stack for logs</span></div>
+        <div class="log-line"><span class="log-cmd">alerting</span><span class="log-val">PromQL queries against firing alerts — JVM heap, container memory, disk space, etcd health</span></div>
+        <div class="log-line"><span class="log-cmd">workflow</span><span class="log-val">Bash scripts against the Prometheus HTTP API, recurring reports, Kibana log tracing, Teams shift handovers</span></div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Kubernetes</span><span class="tag">Rancher</span><span class="tag">WSO2</span>
+        <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">EFK Stack</span>
+        <span class="tag">PromQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-tag">Career log</div>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="panel">
+      <div class="log">
+        <div class="log-line"><span class="log-cmd">2024 → now</span><span class="log-val"><strong style="color:var(--text)">Chakray Consulting</strong> — Software Engineer (Integration Developer). API-led integration for enterprise clients; gateways and flows in WSO2, Gravitee, Apache Camel & Identity Server; artifacts built and deployed via WSO2 Micro Integrator.</span></div>
+        <div class="log-line"><span class="log-cmd">2019 → 2024</span><span class="log-val"><strong style="color:var(--text)">Freelance</strong>, Tanzania. Full-stack systems from concept to production — Django backends, Flutter mobile apps, CI/CD pipelines and containerized deployments on AWS with Docker & Kubernetes.</span></div>
+        <div class="log-line"><span class="log-cmd">2023</span><span class="log-val"><strong style="color:var(--text)">HamiNass Media</strong> — Software Engineer. Developed and enhanced a social media application, working within an existing codebase to ship critical new features. Owned backend development in Django and partnered with Flutter developers on a seamless cross-platform experience — engineering REST APIs, integrating Firebase Authentication, configuring AWS infrastructure, leading production deployments, and optimizing the codebase for performance and scalability.</span></div>
+        <div class="log-line"><span class="log-cmd">2021 → 2022</span><span class="log-val"><strong style="color:var(--text)">Ennovate Ventures</strong> — Full Stack Software Developer. End-to-end web platforms across fintech, recruitment, and e-commerce.</span></div>
+      </div>
+      <div class="tag-row">
+        <span class="tag">B.Sc. Information Technology — National Institute of Transport</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-head">
+      <div class="section-tag">Toolbox</div>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cell">
+        <h3>API Management & Integration</h3>
+        <ul>
+          <li>WSO2 Certified Micro Integrator Developer v4</li>
+          <li>WSO2 Certified Identity Server Developer v7</li>
+          <li>WSO2 Certified API Manager Developer v4</li>
+          <li>Gravitee Event-native API Management Architect</li>
+          <li>Gravitee Event Native API Management Foundation</li>
+          <li>Gravitee Event Native API Management Professional</li>
+          <li>Gravitee API Management for Kafka Competency</li>
+          <li>Gravitee API Management for MQTT Competency</li>
+          <li>Apache Camel</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Backend</h3>
+        <ul>
+          <li>Django / Django REST Framework</li>
+          <li>Spring Boot · Apache Camel</li>
+          <li>Java · RESTful APIs</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Mobile & Frontend</h3>
+        <ul>
+          <li>Flutter / Dart · GetX</li>
+          <li>JavaScript · HTML/CSS</li>
+          <li>Firebase</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Cloud & DevOps</h3>
+        <ul>
+          <li>Kubernetes (Rancher / RKE) · Docker</li>
+          <li>AWS</li>
+          <li>Jenkins · GitHub Actions · CI/CD</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Databases</h3>
+        <ul>
+          <li>PostgreSQL / PostGIS</li>
+          <li>MySQL · MongoDB</li>
+          <li>Firestore</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Monitoring & Tools</h3>
+        <ul>
+          <li>Prometheus · Grafana</li>
+          <li>Git · Swagger/OpenAPI</li>
+          <li>Postman</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="contact-row">
+      <div>
+        <div class="contact-cta">Have something worth building? Let's talk.</div>
+        <p class="contact-note">Send a message and I will get back to you.</p>
+      </div>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:isayalib@gmail.com">Email me</a>
+        <a class="btn" href="tel:+255714694508">+255 714 694 508</a>
+        <a class="btn" href="https://www.linkedin.com/in/isaya-bendera-54b561190/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <form class="contact-form" method="post" action="{% url 'contact' %}">
+      {% csrf_token %}
+      {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+      <div class="form-grid">
+        <label for="{{ form.name.id_for_label }}">Name{{ form.name }}{% for error in form.name.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</label>
+        <label for="{{ form.email.id_for_label }}">Email{{ form.email }}{% for error in form.email.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</label>
+      </div>
+      <label for="{{ form.message.id_for_label }}">Message{{ form.message }}{% for error in form.message.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</label>
+      <button class="btn primary form-submit" type="submit">Send message</button>
+    </form>
+    {% if submitted %}<p class="form-success">Message received. Thank you, I will be in touch.</p>{% endif %}
+    <div class="foot-note">Isaya Bendera · Dar es Salaam, Tanzania · WSO2 & Gravitee Certified Integration Engineer</div>
+  </footer>
+
+</div>
+
+<script>
+  const panels = document.querySelectorAll('.panel');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  panels.forEach(p => io.observe(p));
+</script>
+
+</body>
+</html>
