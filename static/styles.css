@@ -231,7 +231,11 @@
   .contact-form input, .contact-form textarea{ width:100%; border:1px solid var(--border); border-radius:6px; background:var(--surface); color:var(--text); font:inherit; font-family:var(--font-body); font-size:0.92rem; padding:11px 13px; resize:vertical; }
   .contact-form textarea{ min-height:130px; }
   .contact-form input:focus, .contact-form textarea:focus{ outline:2px solid var(--gold); outline-offset:2px; border-color:var(--gold); }
-  .form-submit{ cursor:pointer; margin-top:2px; }
+  .form-submit{ cursor:pointer; margin-top:2px; display:inline-flex; align-items:center; justify-content:center; gap:9px; min-width:142px; }
+  .form-submit:disabled{ cursor:wait; opacity:0.75; }
+  .form-loader{ width:14px; height:14px; border:2px solid rgba(20,26,35,0.35); border-top-color:#141a23; border-radius:50%; animation:form-spin .7s linear infinite; display:none; }
+  .form-submit[aria-busy="true"] .form-loader{ display:inline-block; }
+  @keyframes form-spin{ to{ transform:rotate(360deg); } }
   .field-error, .form-errors{ color:#f08d7d; font-family:var(--font-body); font-size:0.8rem; text-transform:none; letter-spacing:0; }
   .form-errors{ margin-bottom:14px; }
   .form-success{ color:var(--green); font-size:0.9rem; margin-top:16px; }
