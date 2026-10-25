@@ -286,8 +286,12 @@
         <a class="btn" href="https://www.linkedin.com/in/isaya-bendera-54b561190/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
+    {% if static_build %}
+    <form class="contact-form" method="post" action="{{ formspree_endpoint }}" data-formspree>
+    {% else %}
     <form class="contact-form" method="post" action="{% url 'contact' %}">
       {% csrf_token %}
+    {% endif %}
       {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
       <div class="form-grid">
         <label for="{{ form.name.id_for_label }}">Name{{ form.name }}{% for error in form.name.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</label>
@@ -299,7 +303,10 @@
         <span class="form-loader" aria-hidden="true"></span>
       </button>
     </form>
-    {% if submitted %}<p class="form-success">Message received. Thank you, I will be in touch.</p>{% endif %}
+    {% if static_build %}
+    <p class="form-success" hidden>Message received. Thank you, I will be in touch.</p>
+    <p class="form-errors" hidden>Something went wrong. Please try again or email me directly.</p>
+    {% elif submitted %}<p class="form-success">Message received. Thank you, I will be in touch.</p>{% endif %}
     <div class="foot-note">Isaya Bendera · Dar es Salaam, Tanzania · WSO2 & Gravitee Certified Integration Engineer</div>
   </footer>
 
@@ -315,10 +322,35 @@
   const contactForm = document.querySelector('.contact-form');
   const submitButton = contactForm?.querySelector('.form-submit');
   if (contactForm && submitButton) {
-    contactForm.addEventListener('submit', () => {
+    const submitLabel = submitButton.querySelector('.form-submit-label');
+    contactForm.addEventListener('submit', async (event) => {
       submitButton.disabled = true;
       submitButton.setAttribute('aria-busy', 'true');
-      submitButton.querySelector('.form-submit-label').textContent = 'Sending...';
+      submitLabel.textContent = 'Sending...';
+      if (!contactForm.hasAttribute('data-formspree')) return;
+
+      // Static build: post to Formspree in the background and show the result inline.
+      event.preventDefault();
+      const success = document.querySelector('.form-success');
+      const failure = document.querySelector('.form-errors');
+      success.hidden = true;
+      failure.hidden = true;
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error(response.statusText);
+        contactForm.reset();
+        success.hidden = false;
+      } catch {
+        failure.hidden = false;
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+        submitLabel.textContent = 'Send message';
+      }
     });
   }
 </script>

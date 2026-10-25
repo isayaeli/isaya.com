@@ -35,3 +35,20 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
+
+## Deploy to GitHub Pages
+
+`.github/workflows/pages.yml` builds a static copy of the site on every push to `main` and publishes it to https://isayaeli.github.io/isaya.com/. In that build the contact form posts to [Formspree](https://formspree.io) instead of Django.
+
+One-time setup:
+
+1. Create a Formspree form and copy its endpoint (`https://formspree.io/f/<id>`).
+2. Save it as the repository variable `FORMSPREE_ENDPOINT` (Settings → Secrets and variables → Actions → Variables, or `gh variable set FORMSPREE_ENDPOINT`).
+3. Set Settings → Pages → Source to **GitHub Actions**.
+
+Build it locally with:
+
+```sh
+python manage.py build_site --base-url http://localhost:8001 --formspree https://formspree.io/f/test
+python -m http.server 8001 -d dist
+```
